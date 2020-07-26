@@ -96,3 +96,25 @@ def remove_docs(file_lines):
 	return file_without_docs	
 
 count_lines("count.py", {"no_docs":True, "no_comments":True})
+
+import os
+ 
+rootDir = '.'
+for dirName, subdirList, fileList in os.walk(rootDir):
+    print('Found directory: %s' % dirName)
+    for fname in fileList:
+        print('\t%s' % fname)
+    # Remove the first entry in the list of sub-directories
+    # if there are any sub-directories present
+    if len(subdirList) > 0:
+        del subdirList[0]
+
+# Import the os module, for the os.walk function
+import os
+ 
+# Set the directory you want to start from
+rootDir = '.'
+for dirName, subdirList, fileList in os.walk(rootDir):
+    print('Found directory: %s' % dirName)
+    for fname in fileList:
+        print('\t%s' % fname)
