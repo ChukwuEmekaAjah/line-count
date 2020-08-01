@@ -1,9 +1,7 @@
 import utilities
 
 class LineCount:
-	"""
-	docs are 
-	"""
+	
 	def __init__(self, directory, flags={'no_comments':True, 'no_docs':True, 'exclude':['__pycache__']}):
 		self.line_count = 0
 		self.directory = directory
