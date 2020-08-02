@@ -10,14 +10,12 @@ def read_directory(directory, files=[], exclude=[]):
 		return files_list
 	else:
 		for file in directory_files:
-			print("file is ", file)
 			if os.path.isfile(f'{directory}/{file}'):
 				files_list.append(f'{directory}/{file}')
 			else:
 				if file in exclude:
-					print("excluded file is ", file)
 					continue
-				read_directory(f'{directory}/{file}', files_list)
+				read_directory(f'{directory}/{file}', files_list, exclude)
 
 	return  files_list
 
@@ -32,6 +30,7 @@ def count_lines(file, flags = {}):
 	"""
 	number_of_lines = 0
 
+	
 	try:
 		file_object = open(file, 'r')
 	except IOError as err:
